@@ -1,0 +1,83 @@
+.App {
+  text-align: center;
+  background-color: #000000;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.App .container {
+  padding: 20px;
+
+  min-width: 80vw;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #131118;
+}
+
+h1 {
+  font-size: 38px;
+  margin-top: 0;
+  background: -webkit-linear-gradient(#85ffc4, #5cc6ff, #bc85ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+input {
+  background: #1c1924;
+  border-radius: 8px;
+  height: 46px;
+  min-width: 343px;
+  padding: 16px;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #ffffff;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+input::placeholder {
+  color: #a6a0bb;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: center;
+}
+
+button {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 100px;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+button:first-of-type {
+  background: #1c1924;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+button:last-of-type {
+  background: linear-gradient(
+    74.31deg,
+    #85ffc4 0%,
+    #5cc6ff 45.83%,
+    #bc85ff 80.73%
+  );
+}
