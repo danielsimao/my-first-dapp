@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { ReactComponent as SVG } from "./cool.svg";
-import Verse from "./artifacts/contracts/Verse.json";
+import Verse from "./artifacts/contracts/Verse.sol/Verse.json";
 import { ethers } from "ethers";
 
 declare const window: any;
@@ -18,15 +18,8 @@ function App() {
 
   const handleGetVerse = async () => {
     if (typeof window.ethereum !== "undefined") {
-      const provider = new ethers.providers.Web3Provider(
-        window.ethereum,
-        "ropsten"
-      );
-      const contract = new ethers.Contract(
-        verseAddress,
-        (Verse as any).abi,
-        provider
-      );
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const contract = new ethers.Contract(verseAddress, Verse.abi, provider);
       const verse = await contract.getVerse();
       setVerse(verse);
       console.log(verse);
@@ -36,18 +29,10 @@ function App() {
   const handleSetVerse = async () => {
     if (typeof window.ethereum !== "undefined") {
       await requestAccount();
-      const provider = new ethers.providers.Web3Provider(
-        window.ethereum,
-        "ropsten"
-      );
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
       console.log({ provider });
       const signer = provider.getSigner();
-      const contract = new ethers.Contract(
-        verseAddress,
-        (Verse as any).abi,
-        signer
-      );
-      console.log(input);
+      const contract = new ethers.Contract(verseAddress, Verse.abi, signer);
       const transaction = await contract.setVerse(input);
       await transaction.wait();
       handleGetVerse();
